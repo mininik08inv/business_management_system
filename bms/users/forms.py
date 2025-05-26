@@ -6,14 +6,19 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, Pass
 
 
 class LoginUserForm(AuthenticationForm):
-    email = forms.EmailField(max_length=150,
-                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': ('Login')}),
-                               label='')
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}), label='Пароль')
+    username = forms.EmailField(
+        label='E-Mail',
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'})
+    )
+
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label='Пароль'
+    )
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'password']
+        fields = ['username', 'password']  # Оставляем username, но теперь это email
 
 
 class ProfileUserForm(forms.ModelForm):
