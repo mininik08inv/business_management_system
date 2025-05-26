@@ -4,9 +4,13 @@ from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, CreateView
+import logging
 
 from django.conf import settings
 from .forms import LoginUserForm, ProfileUserForm, RegisterUserForm, UserPasswordChangeForm
+
+
+logger = logging.getLogger(__name__)
 
 
 class LoginUser(LoginView):
