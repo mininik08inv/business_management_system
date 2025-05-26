@@ -1,0 +1,33 @@
+/.idea/
+# Default ignored files
+/shelf/
+/workspace.xml
+# Django
+*.sqlite3
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Environment
+.env
+.env/
+.venv/
+venv/
+ENV/
+env/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Static & Media (в продакшене собирается отдельно)
+/static/
+/media/
+
+# Логи и дампы
+*.log
+*.pot
+*.pyc
+*.pid
