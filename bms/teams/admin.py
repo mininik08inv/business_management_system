@@ -1,11 +1,17 @@
 from django.contrib import admin
-from teams.models import Team
+from .models import Team, TeamMember
 
-# Register your models here.
+class TeamMemberInline(admin.TabularInline):  # или admin.StackedInline
+    model = TeamMember
+    extra = 1  # Количество пустых форм для добавления
 
-admin.site.register(Team)
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    inlines = [TeamMemberInline]
+    list_display = ['name', 'admin']
+    filter_horizontal = ['members']  # Если хотите удобный интерфейс выбора участников
 
-# @admin.register(Team)
-# class TeamAdmin(admin.ModelAdmin):
-#     list_display = ('name', )
-#     list_display_links = ('name', )
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ['user', 'team', 'role']
+    list_filter = ['team', 'role']

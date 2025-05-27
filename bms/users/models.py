@@ -1,5 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
+
 
 class User(AbstractUser):
     """Кастомная модель пользователя с расширенными полями"""
@@ -41,3 +43,6 @@ class User(AbstractUser):
     def delete(self, *args, **kwargs):
         """Удаление аккаунта без возможности восстановления"""
         super().delete(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('users:profile', kwargs={'pk': self.pk})

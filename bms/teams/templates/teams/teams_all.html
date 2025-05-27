@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<ul>
+    {% for team in teams %}
+
+    <li><a href="{% url 'teams:team_detail' team.id %}">{{team}} - {{team.admin}}</a></li>
+
+    {% endfor %}
+</ul>
+
+{% if user.role == 'admin' %}
+      <a href="{% url 'teams:add_team' %}">Довавить команду</a>
+{% endif %}
+
+{% endblock %}

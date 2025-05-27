@@ -9,5 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls', namespace='users')),
     path('tasks/', include('tasks.urls', namespace='tasks')),
+    path('teams/', include('teams.urls', namespace='teams')),
     path('', include('core.urls', namespace='core')),
 ]
