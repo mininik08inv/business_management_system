@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from teams.models import Team
 
 
 class User(AbstractUser):
@@ -12,6 +11,7 @@ class User(AbstractUser):
         ADMIN = 'admin', 'Администратор команды'
 
     email = models.EmailField('Email адрес', unique=True)
+    fullname = models.CharField(max_length=100, default='Вася', verbose_name='ФИО')
     role = models.CharField(
         'Роль',
         max_length=25,
@@ -19,7 +19,7 @@ class User(AbstractUser):
         default=Role.USER
     )
     team = models.ForeignKey(
-        Team,
+        to='teams.Team',
         verbose_name='Команда',
         on_delete=models.SET_NULL,
         null=True,
@@ -27,17 +27,13 @@ class User(AbstractUser):
     )
     is_active = models.BooleanField('Активен', default=True)
 
-    # Переопределяем поле username, чтобы использовать email как основное для входа
-    # username = None
-    # USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = []
 
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
     def __str__(self):
-        return self.email
+        return self.fullname
 
     @property
     def is_team_admin(self):
