@@ -1,23 +1,18 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-
 class User(AbstractUser):
     """Кастомная модель пользователя с расширенными полями"""
 
-    class Role(models.TextChoices):
-        USER = 'user', 'Обычный пользователь'
-        MANAGER = 'manager', 'Менеджер'
-        ADMIN = 'admin', 'Администратор команды'
+    ROLE_CHOICES = [
+        ('user', 'Обычный пользователь'),
+        ('manager', 'Менеджер'),
+        ('admin', 'Администратор команды'),
+    ]
 
     email = models.EmailField('Email адрес', unique=True)
-    fullname = models.CharField(max_length=100, default='Вася', verbose_name='ФИО')
-    role = models.CharField(
-        'Роль',
-        max_length=25,
-        choices=Role.choices,
-        default=Role.USER
-    )
+    fullname = models.CharField(max_length=100, verbose_name='ФИО')
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, verbose_name="Роль")
     team = models.ForeignKey(
         to='teams.Team',
         verbose_name='Команда',
