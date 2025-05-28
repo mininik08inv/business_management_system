@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление задачи{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Добавление задачи</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Название</label>
+                {{ form.title }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Описание</label>
+                {{ form.description }}
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Исполнитель</label>
+                    {{ form.assigned_to }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Приоритет</label>
+                    {{ form.priority }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Срок выполнения</label>
+                {{ form.deadline }}
+            </div>
+            <button type="submit" class="btn btn-primary">Создать задачу</button>
+            <a href="{% url 'tasks:tasks_all' %}" class="btn btn-secondary">Отмена</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
