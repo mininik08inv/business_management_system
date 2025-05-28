@@ -1,6 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import Avg
 from django.urls import reverse
+from django.apps import apps
+
 
 
 class User(AbstractUser):
@@ -24,7 +27,6 @@ class User(AbstractUser):
     )
     is_active = models.BooleanField('Активен', default=True)
 
-
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
@@ -46,3 +48,25 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('users:profile', kwargs={'pk': self.pk})
+
+    def get_user_ratings(self, start_date=None, end_date=None):
+        """
+        Возвращает все оценки задач пользователя за период
+        """
+        TaskRating = apps.get_model('tasks', 'TaskRating')
+        ratings = TaskRating.objects.filter(task__assigned_to=self)
+
+        if start_date:
+            ratings = ratings.filter(rated_at__gte=start_date)
+        if end_date:
+            ratings = ratings.filter(rated_at__lte=end_date)
+
+        return ratings.select_related('task', 'rated_by')
+
+    def get_average_rating(self, start_date=None, end_date=None):
+        """
+        Возвращает среднюю оценку за период
+        """
+        ratings = self.get_user_ratings(start_date, end_date)
+        avg = ratings.aggregate(Avg('score'))['score__avg']
+        return round(avg, 2) if avg else None

@@ -1,8 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import DetailView, ListView, CreateView, UpdateView
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, TemplateView
 from django.views import View
+from django.utils import timezone
+from datetime import timedelta
 
 from .forms import AddTaskForm, CommentForm, TaskRatingForm
 from .models import Task, Comment, TaskRating
@@ -99,3 +101,31 @@ class RateTaskView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('tasks:task_detail', kwargs={'pk': self.object.task.pk})
+
+
+class UserRatingsView(LoginRequiredMixin, TemplateView):
+    template_name = 'tasks/user_ratings.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        # Параметры периода из GET-запроса
+        period = self.request.GET.get('period', 'month')
+
+        # Вычисляем даты периода
+        if period == 'week':
+            start_date = timezone.now() - timedelta(days=7)
+        elif period == 'month':
+            start_date = timezone.now() - timedelta(days=30)
+        elif period == 'year':
+            start_date = timezone.now() - timedelta(days=365)
+        else:
+            start_date = None
+
+        # Получаем оценки
+        context['ratings'] = user.get_user_ratings(start_date)
+        context['average_rating'] = user.get_average_rating(start_date)
+        context['period'] = period
+
+        return context
