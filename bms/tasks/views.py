@@ -1,36 +1,56 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse
 from django.views.generic import DetailView, ListView, CreateView
+from django.views import View
 
-from tasks.forms import AddTaskForm
-from tasks.models import Task
+from .forms import AddTaskForm, CommentForm
+from .models import Task, Comment
 
-
-# Create your views here.
-
-class ShowTask(DetailView):
+class ShowTask(LoginRequiredMixin, DetailView):
+    model = Task
     template_name = 'tasks/task_detail.html'
-    slug_url_kwarg = 'pk'
     context_object_name = 'task'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
 
-class ShowAllTasks(ListView):
+class ShowAllTasks(LoginRequiredMixin, ListView):
+    model = Task
     template_name = 'tasks/tasks_all.html'
     context_object_name = 'tasks'
-    title_page = 'список задач'
 
     def get_queryset(self):
-        tasks_lst = Task.objects.all()
-        return tasks_lst
+        return Task.objects.filter(assigned_to=self.request.user)
 
-
-class AddTask(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
+class AddTask(LoginRequiredMixin, CreateView):
     form_class = AddTaskForm
     template_name = 'tasks/addtask.html'
-    title_page = 'Добавление задачи'
-    permission_required = 'tasks.add_task'
 
     def form_valid(self, form):
-        w = form.save(commit=False)
-        w.created_by = self.request.user
+        form.instance.created_by = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('tasks:task_detail', kwargs={'pk': self.object.pk})
+
+class AddComment(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        task = get_object_or_404(Task, pk=pk)
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.task = task
+            comment.author = request.user
+            comment.save()
+        return redirect('tasks:task_detail', pk=task.pk)
+
+class UpdateTaskStatus(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        task = get_object_or_404(Task, pk=pk)
+        if 'status' in request.POST:
+            task.status = request.POST['status']
+            task.save()
+        return redirect('tasks:task_detail', pk=task.pk)
