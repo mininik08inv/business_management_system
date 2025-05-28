@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ meeting.title }}</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Организатор:</strong> {{ meeting.organizer.get_full_name }}</p>
+            <p><strong>Описание:</strong> {{ meeting.description }}</p>
+            <p><strong>Начало:</strong> {{ meeting.start_time }}</p>
+            <p><strong>Окончание:</strong> {{ meeting.end_time }}</p>
+            <p><strong>Участники:</strong></p>
+            <ul>
+                {% for participant in meeting.participants.all %}
+                <li>{{ participant.fullname }}</li>
+                {% endfor %}
+            </ul>
+
+            <div class="mt-4">
+                <a href="{% url 'meetings:update' meeting.pk %}" class="btn btn-primary">
+                    <i class="bi bi-pencil"></i> Редактировать
+                </a>
+                <a href="{% url 'meetings:list' %}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Назад к списку
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

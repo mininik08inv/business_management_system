@@ -11,4 +11,6 @@ urlpatterns = [
     path('tasks/', include('tasks.urls', namespace='tasks')),
     path('teams/', include('teams.urls', namespace='teams')),
     path('', include('core.urls', namespace='core')),
+    path('meetings/', include('meetings.urls', namespace='meetings')),
+    path('calendar/', include('mycalendar.urls')),
 ]
