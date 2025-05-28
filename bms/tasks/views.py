@@ -1,20 +1,28 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
-from django.urls import reverse
-from django.views.generic import DetailView, ListView, CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import DetailView, ListView, CreateView, UpdateView
 from django.views import View
 
-from .forms import AddTaskForm, CommentForm
-from .models import Task, Comment
+from .forms import AddTaskForm, CommentForm, TaskRatingForm
+from .models import Task, Comment, TaskRating
+
 
 class ShowTask(LoginRequiredMixin, DetailView):
     model = Task
     template_name = 'tasks/task_detail.html'
-    context_object_name = 'task'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        task = self.object
+
         context['comment_form'] = CommentForm()
+        context['rating'] = task.get_rating()
+        context['can_rate_task'] = (
+                task.status == 'completed' and
+                self.request.user.role in ['manager', 'admin']
+        )
+
         return context
 
 class ShowAllTasks(LoginRequiredMixin, ListView):
@@ -24,6 +32,7 @@ class ShowAllTasks(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Task.objects.filter(assigned_to=self.request.user)
+
 
 class AddTask(LoginRequiredMixin, CreateView):
     form_class = AddTaskForm
@@ -54,3 +63,39 @@ class UpdateTaskStatus(LoginRequiredMixin, View):
             task.status = request.POST['status']
             task.save()
         return redirect('tasks:task_detail', pk=task.pk)
+
+
+class RateTaskView(LoginRequiredMixin, UpdateView):
+    model = TaskRating
+    form_class = TaskRatingForm
+    template_name = 'tasks/rate_task.html'
+
+    def get_object(self):
+        task_id = self.kwargs['pk']
+        task = Task.objects.get(pk=task_id)
+
+        # Получаем или создаём оценку
+        rating, created = TaskRating.objects.get_or_create(
+            task=task,
+            defaults={
+                'rated_by': self.request.user,
+                'score': 3,  # Значение по умолчанию
+            }
+        )
+        return rating
+
+    def form_valid(self, form):
+        # Проверяем, что пользователь — руководитель
+        if self.request.user.role not in ['manager', 'admin']:
+            form.add_error(None, "Только руководитель может оценивать задачи!")
+            return self.form_invalid(form)
+
+        # Проверяем, что задача завершена
+        if self.object.task.status != 'completed':
+            form.add_error(None, "Нельзя оценить невыполненную задачу!")
+            return self.form_invalid(form)
+
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('tasks:task_detail', kwargs={'pk': self.object.task.pk})

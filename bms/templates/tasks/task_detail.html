@@ -26,10 +26,13 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <strong>Создал:</strong> {{ task.created_by }}
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
+                <strong>Команда:</strong> {{ task.responsible_team|default:"Не назначен" }}
+            </div>
+            <div class="col-md-5">
                 <strong>Исполнитель:</strong> {{ task.assigned_to|default:"Не назначен" }}
             </div>
         </div>
@@ -39,13 +42,33 @@
             <div class="input-group">
                 <select name="status" class="form-select">
                     {% for status in task.STATUS_CHOICES %}
-                    <option value="{{ status.0 }}" {% if task.status == status.0 %}selected{% endif %}>
+                    <option value="{{ status.0 }}" {% if task.status is status.0 %}selected{% endif %}>
                         {{ status.1 }}
                     </option>
                     {% endfor %}
                 </select>
                 <button type="submit" class="btn btn-primary">Обновить статус</button>
             </div>
+            {% if rating %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Оценка руководителя</h5>
+                    <p class="card-text">
+                        <strong>Оценка:</strong> {{ rating.get_score_display }}<br>
+                        {% if rating.feedback %}
+                        <strong>Комментарий:</strong> {{ rating.feedback }}
+                        {% endif %}
+                    </p>
+                    <small class="text-muted">
+                        Оценено {{ rating.rated_by }} ({{ rating.rated_at|date }})
+                    </small>
+                </div>
+            </div>
+            {% elif can_rate_task %}
+            <a href="{% url 'tasks:rate_task' pk=task.pk %}" class="btn btn-success">
+                Поставить оценку
+            </a>
+            {% endif %}
         </form>
     </div>
 </div>
