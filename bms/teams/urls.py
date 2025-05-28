@@ -1,12 +1,12 @@
 from django.urls import path
+from .views import (ShowTeam, ShowAllTeams, AddTeam, AddTeamMember, RemoveTeamMember, )
 
-from . import views
-
-app_name = "teams"
+app_name = 'teams'
 
 urlpatterns = [
-    path('add-team/', views.AddTeam.as_view(), name='add_team'),
-    path('team-detail/<int:pk>', views.ShowTeam.as_view(), name='team_detail'),
-    path('', views.ShowAllTeams.as_view(), name='teams'),
-
-  ]
+    path('<int:pk>/', ShowTeam.as_view(), name='team_detail'),
+    path('all/', ShowAllTeams.as_view(), name='teams_all'),
+    path('add/', AddTeam.as_view(), name='add_team'),
+    path('<int:pk>/add-member/', AddTeamMember.as_view(), name='add_member'),
+    path('<int:team_pk>/remove-member/<int:user_pk>/', RemoveTeamMember.as_view(), name='remove_member'),
+]

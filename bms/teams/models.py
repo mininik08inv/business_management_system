@@ -10,7 +10,6 @@ class Team(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     members = models.ManyToManyField(User, through='TeamMember', related_name='users')
-    invite_code = models.CharField(max_length=20, unique=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -18,8 +18,7 @@ class ShowTeam(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['add_member_form'] = AddMemberForm()
-        context['tasks'] = Task.objects.filter(created_by__team=self.object)
+        context['tasks'] = Task.objects.filter(created_by__in=self.object.members.all())
         return context
 
 class ShowAllTeams(LoginRequiredMixin, ListView):
