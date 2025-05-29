@@ -9,8 +9,8 @@ __pycache__/
 db.sqlite3
 
 # Environment
-.env
-.env/
+bms/.env
+bms/.env/
 .venv/
 venv/
 ENV/
