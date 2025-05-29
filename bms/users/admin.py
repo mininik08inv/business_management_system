@@ -1,6 +1,11 @@
 from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
-from users.models import User
+User = get_user_model()
 
-admin.site.register(User)
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('email', 'fullname')
+    list_display_links = ('email', 'fullname')

@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
 
-    <form method="post", enctype="multipart/form-data">
+    <form method="post" , enctype="multipart/form-data">
         <h1 class="text-center">{{title}}</h1>
         {% csrf_token %}
         <div class="form-error">{{ form.non_field_errors }}</div>

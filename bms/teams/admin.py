@@ -9,7 +9,7 @@ class TeamMemberInline(admin.TabularInline):  # или admin.StackedInline
 class TeamAdmin(admin.ModelAdmin):
     inlines = [TeamMemberInline]
     list_display = ['name', 'admin']
-    filter_horizontal = ['members']  # Если хотите удобный интерфейс выбора участников
+    filter_horizontal = ['members']
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):

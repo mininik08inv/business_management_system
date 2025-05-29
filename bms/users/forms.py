@@ -22,20 +22,31 @@ class LoginUserForm(AuthenticationForm):
 
 
 class ProfileUserForm(forms.ModelForm):
-    username = forms.CharField(disabled=True, label='Логин', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.CharField(disabled=True, label='E-mail', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(disabled=True, label='Логин',
+                             widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.CharField(disabled=True, label='E-mail',
+                          widget=forms.TextInput(attrs={'class': 'form-control'}))
+    role = forms.CharField(disabled=True, label='Роль',
+                         widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = get_user_model()
-        fields = ['role', 'username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'first_name', 'last_name', 'role']
         labels = {
             'first_name': 'Имя',
             'last_name': 'Фамилия',
+            'role': 'Роль'
         }
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.role:
+            # Устанавливаем отображаемое значение роли
+            self.initial['role'] = self.instance.role
 
 
 class RegisterUserForm(UserCreationForm):
