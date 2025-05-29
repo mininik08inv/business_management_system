@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ team.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{{ team.name }}</h2>
+    </div>
+    <div class="card-body">
+        <p>{{ team.description }}</p>
+        <p><strong>Администратор:</strong> {{ team.admin }}</p>
+
+        <h3 class="mt-4">Участники</h3>
+        <ul class="list-group">
+            {% for member in team.members.all %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ member }}
+                {% if request.user == team.admin %}
+                <form method="post" action="{% url 'teams:remove_member' team.pk member.pk %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                </form>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+
+        {% if request.user == team.admin %}
+        <a href="{% url 'teams:add_member' team.pk %}" class="btn btn-primary mt-3">Добавить участника</a>
+        {% endif %}
+
+        <h3 class="mt-4">Задачи команды</h3>
+        <ul class="list-group">
+            {% for task in tasks %}
+            <li class="list-group-item">
+                <a href="{% url 'tasks:task_detail' task.pk %}">{{ task.title }}</a>
+                <span class="badge bg-{{ task.get_status_display }}">{{ task.get_status_display }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+         <a href="{% url 'tasks:add_task' %}" class="btn btn-primary mt-3">Добавить задачу</a>
+    </div>
+</div>
+{% endblock %}

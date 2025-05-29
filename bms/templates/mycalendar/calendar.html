@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Календарь{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Месячный вид -->
+        <div class="col-md-8">
+            <h3>Месяц: {{ month_date|date:"F Y" }}</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Пн</th>
+                        <th>Вт</th>
+                        <th>Ср</th>
+                        <th>Чт</th>
+                        <th>Пт</th>
+                        <th>Сб</th>
+                        <th>Вс</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for week in month_calendar %}
+                    <tr>
+                        {% for day in week %}
+                        <td {% if day.is_today %}class="table-primary"{% endif %}>
+                            {% if day.day %}
+                                <div class="fw-bold">{{ day.day }}</div>
+                                {% for event in day.events %}
+                                <div class="small text-truncate" title="{{ event }}">
+                                    {{ event }}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Дневной вид -->
+        <div class="col-md-4">
+            <h3>День: {{ day_date|date:"d.m.Y" }}</h3>
+            {% if day.tasks or day.meetings %}
+            <div class="list-group">
+                {% for task in day.tasks %}
+                <a href="{% url 'tasks:task_detail' task.pk %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex justify-content-between">
+                        <span><i class="bi bi-check-circle"></i> {{ task.title }}</span>
+                        <span class="badge bg-secondary">{{ task.deadline|time }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+
+                {% for meeting in day.meetings %}
+                <a href="{% url 'meetings:detail' meeting.pk %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex justify-content-between">
+                        <span><i class="bi bi-people"></i> {{ meeting.title }}</span>
+                        <span class="badge bg-primary">{{ meeting.start_time|time }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="alert alert-info">Нет событий на этот день</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'teams',
     'tasks',
     'meetings',
-    'evaluations',
+    'mycalendar',
+    'core',
 
 ]
 
@@ -68,7 +69,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,8 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bms.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -126,6 +126,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Форматы даты/времени
+USE_L10N = False
+DATETIME_FORMAT = 'd.m.Y H:i'
+DATE_FORMAT = 'd.m.Y'
+TIME_FORMAT = 'H:i'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -139,6 +145,16 @@ else:
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'users:login'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'users.authentication.EmailAuthBackend',
+]
+
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_REDIRECT_URL = 'core:home'
 
 LOGGING = {
     'version': 1,
@@ -201,3 +217,5 @@ LOGGING = {
         },
     },
 }
+
+AUTH_USER_MODEL = 'users.User'
