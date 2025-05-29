@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Avg
 from django.urls import reverse
@@ -33,6 +34,13 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.fullname
+
+    def save(self, *args, **kwargs):
+        if self.pk:  # Если объект уже существует в базе (т.е. это обновление)
+            old_email = User.objects.get(pk=self.pk).email
+            if old_email != self.email:  # Если email был изменен
+                raise ValidationError("Изменение email запрещено.")
+        super().save(*args, **kwargs)
 
     @property
     def is_team_admin(self):
