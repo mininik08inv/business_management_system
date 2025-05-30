@@ -33,6 +33,7 @@ def rating(task, user):
 
 @pytest.fixture
 def meeting(user):
+    participant = User.objects.create_user(username='testuser1', email='test1@example.com', password='1testpasswordA')
     meeting = Meeting.objects.create(title='Test Meeting', organizer=user, start_time=timezone.now(), end_time=timezone.now() + timezone.timedelta(hours=1))
-    meeting.participants.add(user)
+    meeting.participants.add(participant)
     return meeting
