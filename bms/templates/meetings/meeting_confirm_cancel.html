@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Отмена встречи{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h2>Отмена встречи</h2>
+        </div>
+        <div class="card-body">
+            <p>Вы уверены, что хотите отменить встречу <strong>"{{ object.title }}"</strong>?</p>
+            <p><i class="bi bi-calendar-event"></i> {{ object.start_time|date:"d.m.Y H:i" }} - {{ object.end_time|date:"H:i" }}</p>
+            
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-x-circle"></i> Да, отменить
+                </button>
+                <a href="{% url 'meetings:list' %}" class="btn btn-secondary">Нет, вернуться</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
