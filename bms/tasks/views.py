@@ -1,13 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, TemplateView
-from django.views import View
 from django.utils import timezone
 from datetime import timedelta
 
-from .forms import AddTaskForm, CommentForm, TaskRatingForm
-from .models import Task, Comment, TaskRating
+from tasks.forms import AddTaskForm, CommentForm, TaskRatingForm
+from tasks.models import Task, Comment, TaskRating
 
 
 class ShowTask(LoginRequiredMixin, DetailView):
@@ -26,6 +26,7 @@ class ShowTask(LoginRequiredMixin, DetailView):
         )
 
         return context
+
 
 class ShowAllTasks(LoginRequiredMixin, ListView):
     model = Task
@@ -47,30 +48,35 @@ class AddTask(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('tasks:task_detail', kwargs={'pk': self.object.pk})
 
-class AddComment(LoginRequiredMixin, View):
-    def post(self, request, pk):
-        task = get_object_or_404(Task, pk=pk)
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.task = task
-            comment.author = request.user
-            comment.save()
+
+class AddComment(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        task = get_object_or_404(Task, pk=self.kwargs['pk'])
+        comment = form.save(commit=False)
+        comment.task = task
+        comment.author = self.request.user
+        comment.save()
         return redirect('tasks:task_detail', pk=task.pk)
 
-class UpdateTaskStatus(LoginRequiredMixin, View):
-    def post(self, request, pk):
-        task = get_object_or_404(Task, pk=pk)
-        if 'status' in request.POST:
-            task.status = request.POST['status']
-            task.save()
-        return redirect('tasks:task_detail', pk=task.pk)
+
+class UpdateTaskStatus(LoginRequiredMixin, UpdateView):
+    model = Task
+    fields = ['status']
+
+    def form_valid(self, form):
+        form.save()
+        return redirect('tasks:task_detail', pk=self.object.pk)
 
 
 class RateTaskView(LoginRequiredMixin, UpdateView):
     model = TaskRating
     form_class = TaskRatingForm
     template_name = 'tasks/rate_task.html'
+
+    DEFAULT_RATING_SCORE = 3
 
     def get_object(self):
         task_id = self.kwargs['pk']
@@ -81,7 +87,7 @@ class RateTaskView(LoginRequiredMixin, UpdateView):
             task=task,
             defaults={
                 'rated_by': self.request.user,
-                'score': 3,  # Значение по умолчанию
+                'score': self.DEFAULT_RATING_SCORE,
             }
         )
         return rating
@@ -89,13 +95,11 @@ class RateTaskView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         # Проверяем, что пользователь — руководитель
         if self.request.user.role not in ['manager', 'admin']:
-            form.add_error(None, "Только руководитель может оценивать задачи!")
-            return self.form_invalid(form)
+            raise ValidationError("Только руководитель может оценивать задачи!")
 
         # Проверяем, что задача завершена
         if self.object.task.status != 'completed':
-            form.add_error(None, "Нельзя оценить невыполненную задачу!")
-            return self.form_invalid(form)
+            raise ValidationError("Нельзя оценить невыполненную задачу!")
 
         return super().form_valid(form)
 
@@ -106,6 +110,17 @@ class RateTaskView(LoginRequiredMixin, UpdateView):
 class UserRatingsView(LoginRequiredMixin, TemplateView):
     template_name = 'tasks/user_ratings.html'
 
+    @staticmethod
+    def get_start_date(period):
+        period_map = {
+            'week': 7,
+            'month': 30,
+            'year': 365
+        }
+        if period in period_map:
+            return timezone.now() - timedelta(days=period_map[period])
+        return None
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
@@ -113,15 +128,7 @@ class UserRatingsView(LoginRequiredMixin, TemplateView):
         # Параметры периода из GET-запроса
         period = self.request.GET.get('period', 'month')
 
-        # Вычисляем даты периода
-        if period == 'week':
-            start_date = timezone.now() - timedelta(days=7)
-        elif period == 'month':
-            start_date = timezone.now() - timedelta(days=30)
-        elif period == 'year':
-            start_date = timezone.now() - timedelta(days=365)
-        else:
-            start_date = None
+        start_date = self.get_start_date(period)
 
         # Получаем оценки
         context['ratings'] = user.get_user_ratings(start_date)

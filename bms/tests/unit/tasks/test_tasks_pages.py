@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytest
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
@@ -22,7 +24,7 @@ def test_task_all(client, user):
 def test_task_all_unauthenticated(client):
     response = client.get(reverse('tasks:tasks_all'))
     assert response.status_code == 302
-    assert response.url == '/users/login/?next=/tasks/all/'
+    assert response.url == reverse('users:login') + '?next=/tasks/all/'
 
 
 @pytest.mark.django_db
@@ -35,13 +37,22 @@ def test_task_detail_page(client, user, team, task):
 
 
 @pytest.mark.django_db
-def test_add_task(client):
-    user = User.objects.create_user(username='testuser', email='test@example.com', password='1testpasswordA')
-    team = Team.objects.create(name='Test Team', admin=user)
+def test_add_task(user, team, client):
     client.login(username='testuser', password='1testpasswordA')
     data = {'title': 'Test Task', 'description': 'This is a test task.',
-            'deadline': timezone.now() + timezone.timedelta(days=1), 'responsible_team': team.id}
+            'deadline': timezone.now() + timezone.timedelta(days=1), 'responsible_team': team.id, 'priority': 'medium'}
     response = client.post(reverse('tasks:add_task'), data=data)
+    assert response.status_code == 302
+
+
+@pytest.mark.django_db
+def test_add_task_fail(user, team, client):
+    client.login(username='testuser', password='1testpasswordA')
+    data = {'title': 'Test Task', 'description': 'This is a test task.',
+            'deadline': timezone.now() + timezone.timedelta(days=1), 'responsible_team': team.id} # 'priority' обязателен
+    response = client.post(reverse('tasks:add_task'), data=data)
+    assert 'priority' in response.context['form'].errors
+    assert response.context['form'].errors['priority'] == ['Обязательное поле.']
     assert response.status_code == 200
 
 
@@ -98,7 +109,6 @@ def test_user_ratings_view_period(client, user, period, period_days):
         user.get_user_ratings(timezone.now() - timezone.timedelta(days=period_days)))
     assert response.context['average_rating'] == user.get_average_rating(
         timezone.now() - timezone.timedelta(days=period_days))
-
 
 @pytest.mark.django_db
 def test_user_ratings_view_default(client, user):

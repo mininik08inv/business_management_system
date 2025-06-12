@@ -4210,3 +4210,428 @@ INFO 2025-06-08 09:39:11,826 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.
 INFO 2025-06-08 09:39:11,830 basehttp (line 212) "GET /users/login/?next=/tasks/my-ratings/ HTTP/1.1" 200 3806
 INFO 2025-06-08 09:39:12,416 basehttp (line 212) "GET /users/login/ HTTP/1.1" 200 3788
 INFO 2025-06-08 09:39:13,203 basehttp (line 212) "GET /users/register/ HTTP/1.1" 200 4669
+INFO 2025-06-08 11:50:39,633 basehttp (line 212) "GET /users/login/ HTTP/1.1" 200 3788
+INFO 2025-06-08 11:52:25,847 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4054
+INFO 2025-06-08 11:52:48,204 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4049
+INFO 2025-06-08 11:53:20,590 basehttp (line 212) "GET /users/password-reset/ HTTP/1.1" 200 3335
+INFO 2025-06-08 11:53:32,501 basehttp (line 212) "POST /users/password-reset/ HTTP/1.1" 302 0
+INFO 2025-06-08 11:53:32,507 basehttp (line 212) "GET /users/password-reset/done/ HTTP/1.1" 200 2997
+INFO 2025-06-10 20:32:38,157 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 20:32:56,438 basehttp (line 212) "GET / HTTP/1.1" 200 2346
+WARNING 2025-06-10 20:32:57,022 log (line 241) Not Found: /favicon.ico
+WARNING 2025-06-10 20:32:57,023 basehttp (line 212) "GET /favicon.ico HTTP/1.1" 404 2803
+INFO 2025-06-10 20:32:59,520 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 302 0
+INFO 2025-06-10 20:32:59,541 basehttp (line 212) "GET /users/login/?next=/teams/all/ HTTP/1.1" 200 3799
+INFO 2025-06-10 20:33:14,064 basehttp (line 212) "POST /users/login/?next=/teams/all/ HTTP/1.1" 302 0
+INFO 2025-06-10 20:33:14,084 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-10 20:33:18,768 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-10 20:33:19,269 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 20:33:19,770 basehttp (line 212) "GET /calendar/ HTTP/1.1" 200 12520
+INFO 2025-06-10 20:33:20,223 basehttp (line 212) "GET /meetings/ HTTP/1.1" 200 5289
+INFO 2025-06-10 20:33:24,871 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 20:48:06,779 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/forms.py changed, reloading.
+INFO 2025-06-10 20:48:07,164 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 20:48:35,732 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 20:49:12,195 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/forms.py changed, reloading.
+INFO 2025-06-10 20:49:12,528 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 20:53:16,085 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/forms.py changed, reloading.
+INFO 2025-06-10 20:53:16,505 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 20:56:51,657 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 20:57:26,751 basehttp (line 212) "GET /meetings/ HTTP/1.1" 200 5289
+INFO 2025-06-10 20:57:27,771 basehttp (line 212) "GET /calendar/ HTTP/1.1" 200 12520
+INFO 2025-06-10 20:57:28,636 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 20:57:29,160 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-10 20:57:30,248 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5155
+INFO 2025-06-10 20:57:35,994 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 20:58:52,034 autoreload (line 266) /home/blond/effective/business_management_system/bms/meetings/forms.py changed, reloading.
+INFO 2025-06-10 20:58:52,379 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 21:00:55,683 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-10 21:00:55,927 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 21:00:58,874 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-10 21:00:59,319 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 21:01:00,013 basehttp (line 212) "GET /calendar/ HTTP/1.1" 200 12520
+INFO 2025-06-10 21:01:00,400 basehttp (line 212) "GET /meetings/ HTTP/1.1" 200 5289
+INFO 2025-06-10 21:01:00,849 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5155
+WARNING 2025-06-10 21:01:15,522 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-10 21:02:16,810 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/views.py changed, reloading.
+INFO 2025-06-10 21:02:17,030 autoreload (line 668) Watching for file changes with StatReloader
+WARNING 2025-06-10 21:02:26,206 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-10 21:03:00,524 autoreload (line 266) /home/blond/effective/business_management_system/bms/users/forms.py changed, reloading.
+INFO 2025-06-10 21:03:00,720 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 21:03:09,549 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5155
+INFO 2025-06-10 21:03:40,558 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-10 21:03:43,100 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 21:03:45,154 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-10 21:03:46,316 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-10 21:03:47,794 basehttp (line 212) "GET /calendar/ HTTP/1.1" 200 12520
+INFO 2025-06-10 21:03:48,864 basehttp (line 212) "GET /users/profile/ HTTP/1.1" 200 4369
+WARNING 2025-06-10 21:04:04,270 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-10 21:05:03,489 autoreload (line 266) /home/blond/effective/business_management_system/bms/users/views.py changed, reloading.
+INFO 2025-06-10 21:05:03,830 autoreload (line 668) Watching for file changes with StatReloader
+WARNING 2025-06-11 07:24:05,121 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 07:26:22,040 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-11 07:27:07,134 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 07:27:10,893 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+WARNING 2025-06-11 07:27:11,141 log (line 241) Not Found: /favicon.ico
+WARNING 2025-06-11 07:27:11,142 basehttp (line 212) "GET /favicon.ico HTTP/1.1" 404 2803
+INFO 2025-06-11 07:27:13,097 basehttp (line 212) "GET /calendar/ HTTP/1.1" 200 12520
+INFO 2025-06-11 07:27:21,343 basehttp (line 212) "GET /meetings/ HTTP/1.1" 200 5289
+INFO 2025-06-11 07:27:26,480 basehttp (line 212) "GET /meetings/ HTTP/1.1" 200 5289
+INFO 2025-06-11 07:27:27,173 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5155
+INFO 2025-06-11 07:27:31,368 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-11 07:27:33,147 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5133
+INFO 2025-06-11 07:27:51,411 basehttp (line 212) "POST /tasks/7/comment/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:27:51,428 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5319
+INFO 2025-06-11 07:33:04,993 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5301
+INFO 2025-06-11 07:33:06,828 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5319
+INFO 2025-06-11 07:33:13,059 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:33:13,075 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+INFO 2025-06-11 07:33:21,125 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+INFO 2025-06-11 07:33:47,490 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:33:47,515 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5319
+INFO 2025-06-11 07:33:50,448 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:33:50,470 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+INFO 2025-06-11 07:41:59,934 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 07:42:00,135 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 07:42:08,794 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+INFO 2025-06-11 07:42:13,111 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5302
+INFO 2025-06-11 07:42:14,136 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+INFO 2025-06-11 07:42:17,190 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:42:17,209 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+INFO 2025-06-11 07:42:21,572 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:42:21,592 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5463
+INFO 2025-06-11 07:46:12,569 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 07:46:12,586 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+WARNING 2025-06-11 07:47:31,519 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-11 08:06:33,700 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:06:33,893 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:32:30,852 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:32:31,039 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:37:25,879 autoreload (line 266) /home/blond/effective/business_management_system/bms/bms/settings.py changed, reloading.
+INFO 2025-06-11 08:37:26,080 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:39:06,130 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:39:06,309 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:39:17,462 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:39:17,655 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:40:20,264 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:40:20,455 autoreload (line 668) Watching for file changes with StatReloader
+WARNING 2025-06-11 08:40:30,966 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-11 08:45:31,708 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:45:31,907 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:45:43,130 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:45:43,342 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:45:54,571 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5302
+INFO 2025-06-11 08:45:57,545 basehttp (line 212) "GET /tasks/6/ HTTP/1.1" 200 5670
+INFO 2025-06-11 08:46:11,466 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5320
+INFO 2025-06-11 08:46:12,626 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 08:46:12,648 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5319
+INFO 2025-06-11 08:46:15,653 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 08:46:15,670 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5463
+INFO 2025-06-11 08:46:16,752 basehttp (line 212) "GET /tasks/7/rate/ HTTP/1.1" 200 3303
+INFO 2025-06-11 08:46:26,055 basehttp (line 212) "POST /tasks/7/rate/ HTTP/1.1" 302 0
+INFO 2025-06-11 08:46:26,070 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5944
+INFO 2025-06-11 08:46:52,767 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 08:46:52,782 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5941
+INFO 2025-06-11 08:48:51,375 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:48:51,593 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:53:52,531 basehttp (line 212) "GET /users/profile/ HTTP/1.1" 200 4369
+INFO 2025-06-11 08:53:54,836 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+INFO 2025-06-11 08:53:55,871 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:00,074 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 4026
+INFO 2025-06-11 08:54:00,836 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:01,363 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:01,729 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:03,137 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:04,363 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:05,774 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:54:06,560 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 4026
+INFO 2025-06-11 08:58:09,063 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:58:09,261 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:58:13,507 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5691
+INFO 2025-06-11 08:58:17,908 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 4026
+INFO 2025-06-11 08:58:18,724 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 5691
+INFO 2025-06-11 08:58:19,317 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:58:19,833 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 08:58:46,766 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:58:46,956 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 08:58:49,143 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 4026
+INFO 2025-06-11 08:58:52,688 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 5691
+INFO 2025-06-11 08:58:55,440 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:58:58,219 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:14,790 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:17,121 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:21,015 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:23,878 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 4026
+INFO 2025-06-11 08:59:29,715 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:31,488 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:33,888 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 08:59:55,812 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 08:59:56,026 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 09:00:09,210 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 09:00:09,390 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 09:00:12,806 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 09:00:17,161 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 09:00:36,802 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 09:00:37,004 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 09:06:44,724 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 09:06:44,913 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 09:11:40,961 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/views.py changed, reloading.
+INFO 2025-06-11 09:11:41,161 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 09:11:45,065 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 09:11:46,161 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 4026
+INFO 2025-06-11 09:11:48,098 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 5691
+INFO 2025-06-11 09:11:48,790 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 5691
+INFO 2025-06-11 09:11:49,356 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 5691
+INFO 2025-06-11 12:03:27,539 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:03:28,413 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5302
+INFO 2025-06-11 12:03:31,759 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5941
+INFO 2025-06-11 12:03:37,356 basehttp (line 212) "POST /tasks/7/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:03:37,377 basehttp (line 212) "GET /tasks/7/ HTTP/1.1" 200 5944
+INFO 2025-06-11 12:03:40,977 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 5305
+INFO 2025-06-11 12:03:42,702 basehttp (line 212) "GET /tasks/1/ HTTP/1.1" 200 7490
+INFO 2025-06-11 12:03:54,586 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-11 12:03:58,051 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 5353
+INFO 2025-06-11 12:04:01,380 basehttp (line 212) "GET /tasks/add/ HTTP/1.1" 200 4862
+INFO 2025-06-11 12:04:49,537 basehttp (line 212) "POST /tasks/add/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:04:49,555 basehttp (line 212) "GET /tasks/9/ HTTP/1.1" 200 5200
+INFO 2025-06-11 12:04:58,873 basehttp (line 212) "POST /tasks/9/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:04:58,893 basehttp (line 212) "GET /tasks/9/ HTTP/1.1" 200 5344
+INFO 2025-06-11 12:05:00,750 basehttp (line 212) "GET /tasks/9/rate/ HTTP/1.1" 200 3324
+INFO 2025-06-11 12:07:04,716 basehttp (line 212) "GET /tasks/add/ HTTP/1.1" 200 4862
+INFO 2025-06-11 12:07:08,980 basehttp (line 212) "GET /tasks/add/ HTTP/1.1" 200 4862
+INFO 2025-06-11 12:07:53,319 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/forms.py changed, reloading.
+INFO 2025-06-11 12:07:53,513 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:07:58,771 basehttp (line 212) "GET /tasks/add/ HTTP/1.1" 200 4862
+INFO 2025-06-11 12:08:22,955 basehttp (line 212) "POST /tasks/add/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:08:22,971 basehttp (line 212) "GET /tasks/10/ HTTP/1.1" 200 5475
+INFO 2025-06-11 12:09:38,728 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/forms.py changed, reloading.
+INFO 2025-06-11 12:09:38,946 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:10:03,693 basehttp (line 212) "POST /tasks/10/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:10:03,712 basehttp (line 212) "GET /tasks/10/ HTTP/1.1" 200 5620
+INFO 2025-06-11 12:10:04,782 basehttp (line 212) "GET /tasks/10/rate/ HTTP/1.1" 200 3299
+INFO 2025-06-11 12:10:19,479 basehttp (line 212) "POST /tasks/10/rate/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:10:19,496 basehttp (line 212) "GET /tasks/10/ HTTP/1.1" 200 6090
+INFO 2025-06-11 12:10:38,846 basehttp (line 212) "GET /tasks/all/ HTTP/1.1" 200 6673
+INFO 2025-06-11 12:10:40,761 basehttp (line 212) "GET /tasks/9/ HTTP/1.1" 200 5744
+INFO 2025-06-11 12:10:45,732 basehttp (line 212) "POST /tasks/9/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:10:45,756 basehttp (line 212) "GET /tasks/9/ HTTP/1.1" 200 5744
+INFO 2025-06-11 12:10:52,391 basehttp (line 212) "GET /tasks/1/ HTTP/1.1" 200 7490
+INFO 2025-06-11 12:10:55,139 basehttp (line 212) "POST /tasks/1/update-status/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:10:55,166 basehttp (line 212) "GET /tasks/1/ HTTP/1.1" 200 7489
+INFO 2025-06-11 12:12:02,538 autoreload (line 266) /home/blond/effective/business_management_system/bms/tasks/forms.py changed, reloading.
+INFO 2025-06-11 12:12:02,755 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:18:02,330 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/views.py changed, reloading.
+INFO 2025-06-11 12:18:02,550 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:26:41,658 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-11 12:26:43,261 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 5779
+INFO 2025-06-11 12:26:44,649 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 200 3402
+INFO 2025-06-11 12:26:48,850 basehttp (line 212) "POST /teams/1/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:26:48,864 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 6324
+INFO 2025-06-11 12:26:50,621 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 200 3350
+INFO 2025-06-11 12:26:53,327 basehttp (line 212) "POST /teams/1/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:26:53,343 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 6862
+INFO 2025-06-11 12:26:54,506 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 200 3305
+INFO 2025-06-11 12:30:03,796 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/forms.py changed, reloading.
+INFO 2025-06-11 12:30:03,995 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:30:41,482 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/forms.py changed, reloading.
+INFO 2025-06-11 12:30:41,664 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:33:28,366 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/forms.py changed, reloading.
+INFO 2025-06-11 12:33:28,566 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:33:35,847 basehttp (line 212) "POST /teams/1/remove-member/1/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:33:35,867 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 4162
+INFO 2025-06-11 12:33:37,491 basehttp (line 212) "POST /teams/1/remove-member/2/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:33:37,505 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 3617
+INFO 2025-06-11 12:33:38,205 basehttp (line 212) "POST /teams/1/remove-member/3/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:33:38,220 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 3079
+ERROR 2025-06-11 12:33:43,028 log (line 241) Internal Server Error: /teams/1/add-member/
+Traceback (most recent call last):
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/effective/business_management_system/bms/teams/views.py", line 42, in get
+    form = AddMemberForm(exclude_users=team.members.all())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/effective/business_management_system/bms/teams/forms.py", line 21, in __init__
+    if self.exclude_users:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'AddMemberForm' object has no attribute 'exclude_users'
+ERROR 2025-06-11 12:33:43,030 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 500 94409
+INFO 2025-06-11 12:34:15,207 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/forms.py changed, reloading.
+INFO 2025-06-11 12:34:15,400 autoreload (line 668) Watching for file changes with StatReloader
+ERROR 2025-06-11 12:34:18,371 log (line 241) Internal Server Error: /teams/1/add-member/
+Traceback (most recent call last):
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/project_backup/.venv/lib/python3.12/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/effective/business_management_system/bms/teams/views.py", line 42, in get
+    form = AddMemberForm(exclude_users=team.members.all())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/blond/effective/business_management_system/bms/teams/forms.py", line 21, in __init__
+    if self.exclude_users:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'AddMemberForm' object has no attribute 'exclude_users'
+ERROR 2025-06-11 12:34:18,374 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 500 94411
+INFO 2025-06-11 12:34:32,691 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/forms.py changed, reloading.
+INFO 2025-06-11 12:34:32,894 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:34:43,918 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 200 3437
+INFO 2025-06-11 12:34:47,836 basehttp (line 212) "POST /teams/1/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:34:47,855 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 5779
+INFO 2025-06-11 12:34:58,817 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 200 3402
+INFO 2025-06-11 12:35:01,918 basehttp (line 212) "POST /teams/1/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:35:01,936 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 6324
+INFO 2025-06-11 12:35:04,026 basehttp (line 212) "POST /teams/1/remove-member/2/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:35:04,049 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 5779
+INFO 2025-06-11 12:35:07,299 basehttp (line 212) "GET /teams/1/add-member/ HTTP/1.1" 200 3402
+INFO 2025-06-11 12:35:09,330 basehttp (line 212) "POST /teams/1/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:35:09,348 basehttp (line 212) "GET /teams/1/ HTTP/1.1" 200 6324
+INFO 2025-06-11 12:38:41,248 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3701
+INFO 2025-06-11 12:38:42,448 basehttp (line 212) "GET /teams/add/ HTTP/1.1" 200 3245
+INFO 2025-06-11 12:38:56,262 basehttp (line 212) "POST /teams/add/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:38:56,280 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3046
+INFO 2025-06-11 12:41:33,357 autoreload (line 266) /home/blond/effective/business_management_system/bms/teams/views.py changed, reloading.
+INFO 2025-06-11 12:41:33,552 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-11 12:41:59,886 basehttp (line 212) "GET /teams/7/add-member/ HTTP/1.1" 200 3425
+INFO 2025-06-11 12:42:02,275 basehttp (line 212) "POST /teams/7/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:42:02,292 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3591
+INFO 2025-06-11 12:42:03,556 basehttp (line 212) "POST /teams/7/remove-member/2/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:42:03,570 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3046
+INFO 2025-06-11 12:42:11,420 basehttp (line 212) "GET /teams/7/add-member/ HTTP/1.1" 200 3425
+INFO 2025-06-11 12:42:15,389 basehttp (line 212) "POST /teams/7/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:42:15,405 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3591
+INFO 2025-06-11 12:42:20,345 basehttp (line 212) "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:42:20,354 basehttp (line 212) "GET / HTTP/1.1" 200 2346
+INFO 2025-06-11 12:42:26,567 basehttp (line 212) "GET /users/login/ HTTP/1.1" 200 3788
+INFO 2025-06-11 12:42:45,777 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4040
+INFO 2025-06-11 12:42:52,206 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4040
+INFO 2025-06-11 12:43:01,687 basehttp (line 212) "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:43:01,703 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+INFO 2025-06-11 12:43:05,755 basehttp (line 212) "GET /admin/ HTTP/1.1" 200 12113
+INFO 2025-06-11 12:43:05,787 basehttp (line 212) "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+INFO 2025-06-11 12:43:05,795 basehttp (line 212) "GET /static/admin/css/responsive.css HTTP/1.1" 200 18557
+INFO 2025-06-11 12:43:05,841 basehttp (line 212) "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-06-11 12:43:07,528 basehttp (line 212) "GET /admin/ HTTP/1.1" 200 12113
+INFO 2025-06-11 12:43:12,284 autoreload (line 668) Watching for file changes with StatReloader
+WARNING 2025-06-11 12:43:31,490 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-11 12:44:12,274 basehttp (line 212) "GET /admin/users/user/ HTTP/1.1" 200 12040
+INFO 2025-06-11 12:44:12,295 basehttp (line 212) "GET /static/admin/css/changelists.css HTTP/1.1" 200 6584
+INFO 2025-06-11 12:44:12,301 basehttp (line 212) "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-06-11 12:44:12,303 basehttp (line 212) "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-06-11 12:44:12,304 basehttp (line 212) "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-06-11 12:44:12,312 basehttp (line 212) "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-06-11 12:44:12,313 basehttp (line 212) "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-06-11 12:44:12,315 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-11 12:44:12,324 basehttp (line 212) "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-06-11 12:44:28,868 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+INFO 2025-06-11 12:44:31,115 basehttp (line 212) "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:44:31,121 basehttp (line 212) "GET / HTTP/1.1" 200 2346
+INFO 2025-06-11 12:44:33,242 basehttp (line 212) "GET /users/login/ HTTP/1.1" 200 3788
+INFO 2025-06-11 12:44:48,439 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4044
+INFO 2025-06-11 12:44:53,147 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4044
+INFO 2025-06-11 12:45:03,183 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4044
+INFO 2025-06-11 12:45:11,134 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4044
+INFO 2025-06-11 12:45:19,704 basehttp (line 212) "POST /users/login/ HTTP/1.1" 200 4044
+INFO 2025-06-11 12:45:22,887 basehttp (line 212) "GET /users/register/ HTTP/1.1" 200 4669
+INFO 2025-06-11 12:46:04,853 basehttp (line 212) "POST /users/register/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:46:04,857 basehttp (line 212) "GET /users/register_done/ HTTP/1.1" 200 2651
+INFO 2025-06-11 12:46:07,176 basehttp (line 212) "GET /users/login/ HTTP/1.1" 200 3788
+INFO 2025-06-11 12:46:09,670 basehttp (line 212) "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:46:09,683 basehttp (line 212) "GET / HTTP/1.1" 200 2433
+INFO 2025-06-11 12:46:12,397 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3800
+INFO 2025-06-11 12:46:14,577 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3119
+INFO 2025-06-11 12:46:22,204 basehttp (line 212) "GET /tasks/add/ HTTP/1.1" 200 4947
+INFO 2025-06-11 12:46:33,800 basehttp (line 212) "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:46:33,806 basehttp (line 212) "GET / HTTP/1.1" 200 2346
+INFO 2025-06-11 12:46:34,705 basehttp (line 212) "GET /users/login/ HTTP/1.1" 200 3788
+INFO 2025-06-11 12:46:41,583 basehttp (line 212) "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:46:41,593 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+INFO 2025-06-11 12:46:43,949 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3891
+INFO 2025-06-11 12:46:45,111 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3591
+INFO 2025-06-11 12:46:46,715 basehttp (line 212) "GET /teams/7/add-member/ HTTP/1.1" 200 3404
+INFO 2025-06-11 12:47:04,407 basehttp (line 212) "GET /admin/users/user/ HTTP/1.1" 200 12326
+INFO 2025-06-11 12:47:04,430 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-11 12:47:07,522 basehttp (line 212) "GET /admin/users/user/5/change/ HTTP/1.1" 200 28590
+INFO 2025-06-11 12:47:07,539 basehttp (line 212) "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO 2025-06-11 12:47:07,539 basehttp (line 212) "GET /static/admin/css/forms.css HTTP/1.1" 200 8953
+INFO 2025-06-11 12:47:07,543 basehttp (line 212) "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-06-11 12:47:07,548 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-11 12:47:07,582 basehttp (line 212) "GET /static/admin/css/widgets.css HTTP/1.1" 200 11952
+INFO 2025-06-11 12:47:07,643 basehttp (line 212) "GET /static/admin/img/tooltag-arrowright.svg HTTP/1.1" 200 280
+INFO 2025-06-11 12:49:09,161 basehttp (line 212) "POST /admin/users/user/5/change/ HTTP/1.1" 200 28744
+INFO 2025-06-11 12:49:09,193 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-11 12:49:29,567 basehttp (line 212) "POST /admin/users/user/5/change/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:49:29,584 basehttp (line 212) "GET /admin/users/user/ HTTP/1.1" 200 12575
+INFO 2025-06-11 12:49:29,659 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-11 12:49:33,663 basehttp (line 212) "GET /teams/7/add-member/ HTTP/1.1" 200 3420
+INFO 2025-06-11 12:49:38,536 basehttp (line 212) "POST /teams/7/add-member/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:49:38,560 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 4131
+INFO 2025-06-11 12:49:45,394 basehttp (line 212) "POST /teams/7/remove-member/5/ HTTP/1.1" 302 0
+INFO 2025-06-11 12:49:45,411 basehttp (line 212) "GET /teams/7/ HTTP/1.1" 200 3591
+INFO 2025-06-11 12:54:12,418 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3891
+INFO 2025-06-11 12:54:13,515 basehttp (line 212) "GET /teams/add/ HTTP/1.1" 200 3245
+WARNING 2025-06-11 13:04:28,962 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 13:04:40,168 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 13:07:03,694 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 13:07:47,376 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 13:10:11,217 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 13:21:51,068 log (line 241) Forbidden: /teams/20/remove-member/27/
+WARNING 2025-06-11 13:23:05,719 log (line 241) Forbidden: /teams/21/remove-member/28/
+INFO 2025-06-11 14:30:41,623 basehttp (line 212) "GET /teams/all/ HTTP/1.1" 200 3891
+INFO 2025-06-11 14:30:43,861 basehttp (line 212) "GET /teams/2/ HTTP/1.1" 200 5372
+INFO 2025-06-11 14:30:46,153 basehttp (line 212) "GET /tasks/add/ HTTP/1.1" 200 4950
+INFO 2025-06-11 14:32:44,898 basehttp (line 212) "POST /tasks/add/ HTTP/1.1" 302 0
+INFO 2025-06-11 14:32:44,966 basehttp (line 212) "GET /tasks/11/ HTTP/1.1" 200 5105
+WARNING 2025-06-11 14:46:14,224 log (line 241) Forbidden: /teams/20/remove-member/29/
+INFO 2025-06-11 15:02:36,612 autoreload (line 668) Watching for file changes with StatReloader
+WARNING 2025-06-11 15:07:27,585 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 15:18:43,465 log (line 241) Forbidden: /teams/21/remove-member/28/
+WARNING 2025-06-11 15:34:21,511 log (line 241) Forbidden: /teams/22/remove-member/29/
+INFO 2025-06-12 10:05:38,588 autoreload (line 668) Watching for file changes with StatReloader
+INFO 2025-06-12 10:05:41,056 basehttp (line 212) "GET / HTTP/1.1" 200 2420
+WARNING 2025-06-12 10:05:41,459 log (line 241) Not Found: /favicon.ico
+WARNING 2025-06-12 10:05:41,459 basehttp (line 212) "GET /favicon.ico HTTP/1.1" 404 2803
+INFO 2025-06-12 10:05:44,192 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:49,759 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 5130
+INFO 2025-06-12 10:09:50,341 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:50,853 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:51,714 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:52,876 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 5130
+INFO 2025-06-12 10:09:54,297 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:54,946 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:55,673 basehttp (line 212) "GET /tasks/my-ratings/? HTTP/1.1" 200 6796
+INFO 2025-06-12 10:09:58,709 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 6796
+INFO 2025-06-12 10:10:55,005 basehttp (line 212) "GET /tasks/my-ratings/ HTTP/1.1" 200 6796
+INFO 2025-06-12 10:17:20,035 basehttp (line 212) "GET /admin/ HTTP/1.1" 200 12101
+INFO 2025-06-12 10:17:21,747 basehttp (line 212) "GET /admin/ HTTP/1.1" 200 12101
+INFO 2025-06-12 10:17:25,897 basehttp (line 212) "GET /admin/tasks/taskrating/ HTTP/1.1" 200 13903
+INFO 2025-06-12 10:17:25,924 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-12 10:18:54,180 basehttp (line 212) "GET /admin/tasks/taskrating/8/change/ HTTP/1.1" 200 16298
+INFO 2025-06-12 10:18:54,210 basehttp (line 212) "GET /admin/jsi18n/ HTTP/1.1" 200 16165
+INFO 2025-06-12 10:19:09,640 basehttp (line 212) "GET /admin/tasks/taskrating/ HTTP/1.1" 200 13903
+INFO 2025-06-12 10:19:53,114 basehttp (line 212) "GET /admin/ HTTP/1.1" 200 12101
+INFO 2025-06-12 10:23:43,969 basehttp (line 212) "GET /tasks/my-ratings/?period=week HTTP/1.1" 200 5130
+INFO 2025-06-12 10:23:49,213 basehttp (line 212) "GET /tasks/my-ratings/?period=month HTTP/1.1" 200 6796
+INFO 2025-06-12 10:23:52,926 basehttp (line 212) "GET /tasks/my-ratings/?period=year HTTP/1.1" 200 6796

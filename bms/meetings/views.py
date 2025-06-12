@@ -1,10 +1,9 @@
-from django.core.exceptions import ValidationError
 from django.db.models import Q
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Meeting
-from .forms import MeetingForm
+from meetings.models import Meeting
+from meetings.forms import MeetingForm
 
 
 class MeetingListView(LoginRequiredMixin, ListView):

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task, Comment, TaskRating
+from tasks.models import Task, Comment, TaskRating
 
 
 class AddTaskForm(forms.ModelForm):
@@ -7,7 +7,10 @@ class AddTaskForm(forms.ModelForm):
         model = Task
         fields = ['title', 'description', 'assigned_to', 'responsible_team', 'priority', 'deadline']
         widgets = {
-            'deadline': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'deadline': forms.DateTimeInput(
+                attrs={'type': 'datetime-local'},
+                format='%Y-%m-%dT%H:%M',  # формат для datetime-local
+            ),
         }
 
 
@@ -25,6 +28,5 @@ class TaskRatingForm(forms.ModelForm):
         model = TaskRating
         fields = ['score', 'feedback']
         widgets = {
-            'score': forms.Select(choices=TaskRating.RATING_CHOICES),
             'feedback': forms.Textarea(attrs={'rows': 3}),
         }

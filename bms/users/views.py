@@ -6,7 +6,6 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, CreateView
 import logging
 
-from django.conf import settings
 from .forms import LoginUserForm, ProfileUserForm, RegisterUserForm, UserPasswordChangeForm
 
 

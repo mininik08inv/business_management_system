@@ -2,13 +2,12 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
 from django.views.generic import DetailView, ListView, CreateView
 from django.views import View
 
 from tasks.models import Task
-from .forms import AddTeamForm, AddMemberForm
-from .models import Team
+from teams.forms import AddTeamForm, AddMemberForm
+from teams.models import Team
 
 User = get_user_model()
 
@@ -67,7 +66,7 @@ class RemoveTeamMember(LoginRequiredMixin, View):
         user = get_object_or_404(User, pk=user_pk)
 
         # Проверяем, что текущий пользователь - админ команды
-        if request.user != team.admin:
+        if not (team.admin and request.user == team.admin):
             return HttpResponseForbidden()
 
         team.members.remove(user)

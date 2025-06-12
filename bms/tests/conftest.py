@@ -11,6 +11,10 @@ from teams.models import Team
 def user():
     return User.objects.create_user(username='testuser', email='test@example.com', password='1testpasswordA')
 
+@pytest.fixture
+def manager():
+    return User.objects.create_user(username='testmanager', email='testmanager@example.com', password='1testpasswordA', role='manager')
+
 
 @pytest.fixture
 def team(user):
@@ -37,3 +41,13 @@ def meeting(user):
     meeting = Meeting.objects.create(title='Test Meeting', organizer=user, start_time=timezone.now(), end_time=timezone.now() + timezone.timedelta(hours=1))
     meeting.participants.add(participant)
     return meeting
+
+@pytest.fixture
+def list_tasks(user, team):
+    task1 = Task.objects.create(title='Test Task1', created_by=user, assigned_to=user, responsible_team=team,
+                               deadline=timezone.now() + timezone.timedelta(days=1), status='completed')
+    task2 = Task.objects.create(title='Test Task2', created_by=user, assigned_to=user, responsible_team=team,
+                                deadline=timezone.now() + timezone.timedelta(days=15), status='completed')
+    task3 = Task.objects.create(title='Test Task3', created_by=user, assigned_to=user, responsible_team=team,
+                                deadline=timezone.now() + timezone.timedelta(days=150), status='completed')
+    return [task1, task2, task3]
