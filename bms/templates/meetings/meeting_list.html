@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои встречи{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Мои встречи</h1>
+        <a href="{% url 'meetings:create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Новая встреча
+        </a>
+    </div>
+
+    <div class="list-group">
+        {% for meeting in object_list %}
+        <div class="list-group-item {% if meeting.is_cancelled %}list-group-item-secondary{% endif %}">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h5 class="mb-1">
+                        <a href="{% url 'meetings:detail' meeting.pk %}" class="btn btn-sm btn-outline-secondary">
+                            {{ meeting.title }}
+                        </a>
+                        {% if meeting.is_cancelled %}
+                        <span class="badge bg-danger">Отменена</span>
+                        {% endif %}
+                    </h5>
+                    <p class="mb-1">{{ meeting.description|truncatechars:100 }}</p>
+                    <small class="text-muted">
+                        <i class="bi bi-calendar-event"></i>
+                        {{ meeting.start_time|date:"d.m.Y H:i" }} - {{ meeting.end_time|date:"H:i" }} |
+                        <i class="bi bi-people"></i> {{ meeting.participants.count }} участников
+                    </small>
+                </div>
+                <div class="btn-group">
+                    <a href="{% url 'meetings:update' meeting.pk %}" class="btn btn-sm btn-outline-secondary">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    {% if not meeting.is_cancelled %}
+                    <a href="{% url 'meetings:cancel' meeting.pk %}" class="btn btn-sm btn-outline-danger">
+                        <i class="bi bi-x-circle"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-info mt-3">
+            У вас нет запланированных встреч
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
