@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 
 from meetings.models import Meeting
 
@@ -24,6 +25,11 @@ class MeetingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
         super().__init__(*args, **kwargs)
+
+        if not self.request or not self.request.user.is_authenticated:
+            raise ValidationError("Требуется авторизация")
+
         if self.request:
             self.fields['organizer'].initial = self.request.user
-            self.fields['participants'].queryset = self.fields['participants'].queryset.exclude(pk=self.request.user.pk)
+            if 'participants' in self.fields:
+                self.fields['participants'].queryset = User.objects.exclude(pk=self.request.user.pk)

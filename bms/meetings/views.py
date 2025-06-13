@@ -1,4 +1,7 @@
+
+
 from django.db.models import Q
+from django.utils import timezone
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,8 +17,9 @@ class MeetingListView(LoginRequiredMixin, ListView):
         return Meeting.objects.filter(
             Q(organizer=self.request.user) |
             Q(participants=self.request.user),
+            Q(end_time__gte=timezone.now()),
             is_cancelled=False
-        ).order_by('start_time')
+        ).order_by('start_time').distinct()
 
 class MeetingDetailView(LoginRequiredMixin, DetailView):
     model = Meeting

@@ -26,8 +26,8 @@
                     </h5>
                     <p class="mb-1">{{ meeting.description|truncatechars:100 }}</p>
                     <small class="text-muted">
-                        <i class="bi bi-calendar-event"></i> {{ meeting.start_time|date:"d.m.Y H:i" }} - {{
-                        meeting.end_time|date:"H:i" }} |
+                        <i class="bi bi-calendar-event"></i>
+                        {{ meeting.start_time|date:"d.m.Y H:i" }} - {{ meeting.end_time|date:"H:i" }} |
                         <i class="bi bi-people"></i> {{ meeting.participants.count }} участников
                     </small>
                 </div>

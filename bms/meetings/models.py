@@ -1,25 +1,21 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
+
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.utils import timezone
 
 User = get_user_model()
-
-# meetings/models.py
-from django.db import models
-from django.core.exceptions import ValidationError
-
 
 class Meeting(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     organizer = models.ForeignKey(
-        'users.User',
+        User,
         on_delete=models.CASCADE,
         related_name='organized_meetings'
     )
     participants = models.ManyToManyField(
-        'users.User',
+        settings.AUTH_USER_MODEL,
         related_name='meetings'
     )
     start_time = models.DateTimeField()
@@ -28,9 +24,6 @@ class Meeting(models.Model):
     is_cancelled = models.BooleanField(default=False)
 
     def clean(self):
-        if not hasattr(self, 'organizer'):
-            raise ValidationError("Организатор встречи должен быть указан")
-
         if self.end_time <= self.start_time:
             raise ValidationError("Время окончания должно быть позже времени начала")
 
@@ -44,7 +37,3 @@ class Meeting(models.Model):
 
         if conflicts.exists():
             raise ValidationError("У вас уже есть встреча в это время")
-
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        super().save(*args, **kwargs)
